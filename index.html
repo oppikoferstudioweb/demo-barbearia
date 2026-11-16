@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Viking Blade Barber Club | Tradição & Estilo Masculino</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        amber: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Suavização de rolagem e scrollbar personalizada */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #f59e0b;
+        }
+    </style>
+</head>
+<body class="bg-slate-950 text-slate-100 font-sans antialiased selection:bg-amber-500 selection:text-slate-950">
+
+    <!-- NAVBAR FIXA -->
+    <nav class="fixed top-0 left-0 w-full bg-slate-950/90 backdrop-blur-md z-40 border-b border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+            <!-- LOGO VIKING (SVG Vetorial Fictício) -->
+            <a href="#" class="flex items-center gap-3 group">
+                <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-amber-500 to-amber-700 flex items-center justify-center p-2 shadow-lg shadow-amber-500/20 group-hover:scale-105 transition">
+                    <!-- Ícone de Machado / Elmo Viking Estilizado -->
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" class="w-full h-full text-slate-950 stroke-[2.2]">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z" opacity="0"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M12 2v20M4 7l8-4 8 4M4 17l8 4 8-4M7 9v6M17 9v6" />
+                    </svg>
+                </div>
+                <div>
+                    <span class="block text-lg font-black tracking-wider uppercase text-white leading-tight">VIKING <span class="text-amber-500">BLADE</span></span>
+                    <span class="block text-[10px] tracking-widest text-slate-400 uppercase font-semibold">Barber Club</span>
+                </div>
+            </a>
+
+            <!-- MENU DESKTOP -->
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+                <a href="#servicos" class="hover:text-amber-500 transition">Serviços</a>
+                <a href="#galeria" class="hover:text-amber-500 transition">Galeria</a>
+                <a href="#diferenciais" class="hover:text-amber-500 transition">O Espaço</a>
+                <a href="#contato" class="hover:text-amber-500 transition">Localização</a>
+            </div>
+
+            <!-- BOTÃO CTA NAVBAR -->
+            <button onclick="abrirAgendamentoGeral()" 
+               class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-4 py-2 sm:px-5 sm:py-2.5 rounded-xl text-xs sm:text-sm transition flex items-center gap-2 shadow-lg shadow-amber-500/20 cursor-pointer">
+                <i class="fa-solid fa-scissors text-sm"></i>
+                <span>Agendar Horário</span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="relative min-h-[95vh] flex items-center justify-center pt-24 px-4 text-center overflow-hidden">
+        <!-- Fundo Imagem de Alta Qualidade com Gradiente Escuro -->
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=1920&q=80" 
+                 alt="Cadeiras e ambiente de Barbearia Viking" 
+                 class="w-full h-full object-cover opacity-20 filter grayscale">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent"></div>
+        </div>
+
+        <div class="relative z-10 max-w-3xl mx-auto py-12">
+            <!-- Selo de Avaliação -->
+            <div class="inline-flex items-center gap-2 py-1.5 px-4 bg-slate-900/90 border border-amber-500/30 rounded-full text-xs font-semibold mb-6 shadow-md">
+                <span class="text-amber-400 flex text-xs">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </span>
+                <span class="text-slate-300">4.9 no Google (+500 clientes)</span>
+            </div>
+
+            <!-- Título Principal -->
+            <h1 class="text-4xl sm:text-6xl font-black uppercase tracking-tight text-white mb-6 leading-tight">
+                Estilo, Navalha e <br class="hidden sm:block">
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-500 to-amber-600">Tradição Viking</span>
+            </h1>
+
+            <p class="text-slate-400 text-base sm:text-lg mb-8 max-w-xl mx-auto leading-relaxed">
+                Mais do que um corte: uma experiência de cuidado masculino com toalha quente, navalha afiada e cerveja gelada.
+            </p>
+
+            <!-- Chamada de Ação Principal com Efeito Ping -->
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                <button onclick="abrirAgendamentoGeral()" class="w-full sm:w-auto relative inline-flex items-center justify-center px-8 py-4 font-extrabold text-slate-950 bg-amber-500 rounded-xl group overflow-hidden shadow-2xl shadow-amber-500/20 hover:scale-105 transition duration-300 cursor-pointer">
+                    <span class="flex items-center gap-3">
+                        <i class="fa-solid fa-scissors text-lg"></i> ESCOLHER SERVIÇO & AGENDAR
+                    </span>
+                    <span class="absolute -top-1 -right-1 flex h-4 w-4">
+                        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-amber-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-4 w-4 bg-amber-500"></span>
+                    </span>
+                </button>
+            </div>
+
+            <!-- Detalhe de Horário abaixo do Hero -->
+            <div class="mt-12 flex items-center justify-center gap-6 text-xs text-slate-400 font-medium border-t border-slate-900 pt-6">
+                <div><i class="fa-regular fa-clock text-amber-500 mr-1.5"></i> Terça a Sáb: 09h às 20h</div>
+                <div><i class="fa-solid fa-beer-mug-empty text-amber-500 mr-1.5"></i> Chopp Cortesia</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- SEÇÃO DE SERVIÇOS (COM FOTOS REAIS EM CADA CARD) -->
+    <section id="servicos" class="py-24 px-4 bg-slate-900/50 border-t border-b border-slate-800">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center mb-16">
+                <span class="text-xs uppercase tracking-widest text-amber-500 font-bold mb-2 inline-block">Nossos Valores</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Serviços Especializados</h2>
+                <p class="text-slate-400 text-sm mt-3 max-w-md mx-auto">Escolha o serviço desejado e garanta o seu atendimento sem filas de espera.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1: Corte -->
+                <div class="bg-slate-950 border border-slate-800 rounded-2xl overflow-hidden hover:border-amber-500/50 transition duration-300 flex flex-col group">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1599351431202-1e0f0137899a?auto=format&fit=crop&w=600&q=80" 
+                             alt="Corte Degradê Profissional" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <span class="absolute bottom-3 left-3 bg-slate-950/80 backdrop-blur-md px-3 py-1 rounded-lg text-xs font-semibold text-amber-500 border border-slate-800">
+                            Cabelo
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-white mb-2">Corte Viking Clássico / Fade</h3>
+                            <p class="text-slate-400 text-sm mb-6">Lavagem especial com shampoo refrescante, corte estilizado na tesoura ou máquina e finalização com pomada matte.</p>
+                        </div>
+                        <div class="border-t border-slate-800/80 pt-4 flex items-center justify-between">
+                            <span class="text-2xl font-black text-amber-500">R$ 50<span class="text-xs text-slate-500 font-normal">,00</span></span>
+                            <button onclick="iniciarAgendamento('Corte Viking Clássico / Fade', 50)" 
+                               class="bg-slate-800 hover:bg-amber-500 hover:text-slate-950 text-white font-bold px-4 py-2 rounded-lg text-xs transition cursor-pointer flex items-center gap-1.5 active:scale-95">
+                                <i class="fa-solid fa-calendar-check text-[11px]"></i> Agendar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2: Barba Terapia -->
+                <div class="bg-slate-950 border border-slate-800 rounded-2xl overflow-hidden hover:border-amber-500/50 transition duration-300 flex flex-col group">
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1621605815971-fbc98d665033?auto=format&fit=crop&w=600&q=80" 
+                             alt="Alinhamento de Barba com Toalha Quente" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <span class="absolute bottom-3 left-3 bg-slate-950/80 backdrop-blur-md px-3 py-1 rounded-lg text-xs font-semibold text-amber-500 border border-slate-800">
+                            Barba
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-white mb-2">Barba Terapia Completa</h3>
+                            <p class="text-slate-400 text-sm mb-6">Tratamento com toalha quente, abertura de poros, óleos essenciais, desenho detalhado na navalha e pós-barba balsâmico.</p>
+                        </div>
+                        <div class="border-t border-slate-800/80 pt-4 flex items-center justify-between">
+                            <span class="text-2xl font-black text-amber-500">R$ 40<span class="text-xs text-slate-500 font-normal">,00</span></span>
+                            <button onclick="iniciarAgendamento('Barba Terapia Completa', 40)" 
+                               class="bg-slate-800 hover:bg-amber-500 hover:text-slate-950 text-white font-bold px-4 py-2 rounded-lg text-xs transition cursor-pointer flex items-center gap-1.5 active:scale-95">
+                                <i class="fa-solid fa-calendar-check text-[11px]"></i> Agendar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3: Combo Completo (Destaque) -->
+                <div class="bg-slate-950 border-2 border-amber-500 rounded-2xl overflow-hidden shadow-xl shadow-amber-500/10 flex flex-col relative group">
+                    <span class="absolute top-3 right-3 z-10 bg-amber-500 text-slate-950 font-black text-[10px] tracking-wider px-3 py-1 rounded-full uppercase">
+                        Recomendado
+                    </span>
+                    <div class="h-48 overflow-hidden relative">
+                        <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=800&q=80" 
+                             alt="Combo Barba e Cabelo Masculino" 
+                             class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <span class="absolute bottom-3 left-3 bg-amber-500/90 text-slate-950 px-3 py-1 rounded-lg text-xs font-bold">
+                            Combo VIP
+                        </span>
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-white mb-2">Combo Viking Blade</h3>
+                            <p class="text-slate-300 text-sm mb-6">Corte estilizado + Barboterapia completa com toalha quente + Sobrancelha na navalha + 1 Chopp artesanal.</p>
+                        </div>
+                        <div class="border-t border-slate-800/80 pt-4 flex items-center justify-between">
+                            <span class="text-2xl font-black text-amber-500">R$ 80<span class="text-xs text-slate-500 font-normal">,00</span></span>
+                            <button onclick="iniciarAgendamento('Combo Viking Blade (Corte + Barba + Chopp)', 80)" 
+                               class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-black px-4 py-2 rounded-lg text-xs transition cursor-pointer flex items-center gap-1.5 shadow-md shadow-amber-500/20 active:scale-95">
+                                <i class="fa-solid fa-crown text-[10px]"></i> Agendar Combo
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MINI GALERIA DE CORTES -->
+    <section id="galeria" class="py-24 px-4 bg-slate-950">
+        <div class="max-w-6xl mx-auto">
+            <div class="flex flex-col sm:flex-row sm:items-end justify-between mb-12">
+                <div>
+                    <span class="text-xs uppercase tracking-widest text-amber-500 font-bold mb-2 block">Portfólio de Estilos</span>
+                    <h2 class="text-3xl font-extrabold text-white">Nossos Trabalhos Recentes</h2>
+                </div>
+                <a href="https://instagram.com" target="_blank" class="mt-4 sm:mt-0 inline-flex items-center gap-2 text-sm text-amber-500 hover:text-amber-400 font-semibold transition">
+                    <i class="fa-brands fa-instagram text-lg"></i> Siga no Instagram &rarr;
+                </a>
+            </div>
+
+            <!-- Grade 4 Fotos -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <div class="rounded-xl overflow-hidden aspect-square border border-slate-800 relative group">
+                    <img src="https://images.unsplash.com/photo-1622286342621-4bd786c2447c?auto=format&fit=crop&w=500&q=80" 
+                         alt="Corte Degradê Fade" 
+                         class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                </div>
+                <div class="rounded-xl overflow-hidden aspect-square border border-slate-800 relative group">
+                    <img src="https://images.unsplash.com/photo-1593702295094-aea22597af65?auto=format&fit=crop&w=500&q=80" 
+                         alt="Finalização de Barba" 
+                         class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                </div>
+                <div class="rounded-xl overflow-hidden aspect-square border border-slate-800 relative group">
+                    <img src="https://images.unsplash.com/photo-1512690459411-b9245aed614b?auto=format&fit=crop&w=500&q=80" 
+                         alt="Corte Clássico Masculino" 
+                         class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                </div>
+                <div class="rounded-xl overflow-hidden aspect-square border border-slate-800 relative group">
+                    <img src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=500&q=80" 
+                         alt="Ambiente Viking Blade" 
+                         class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DIFERENCIAIS DO ESPAÇO -->
+    <section id="diferenciais" class="py-16 px-4 bg-slate-900 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+            <div class="p-4">
+                <i class="fa-solid fa-beer-mug-empty text-3xl text-amber-500 mb-3"></i>
+                <h4 class="font-bold text-white text-base mb-1">Chopp Gelado</h4>
+                <p class="text-xs text-slate-400">Cortesia em todos os combos</p>
+            </div>
+            <div class="p-4">
+                <i class="fa-solid fa-wifi text-3xl text-amber-500 mb-3"></i>
+                <h4 class="font-bold text-white text-base mb-1">Wi-Fi de Alta Velocidade</h4>
+                <p class="text-xs text-slate-400">Trabalhe enquanto aguarda</p>
+            </div>
+            <div class="p-4">
+                <i class="fa-solid fa-snowflake text-3xl text-amber-500 mb-3"></i>
+                <h4 class="font-bold text-white text-base mb-1">Climatizado</h4>
+                <p class="text-xs text-slate-400">Ambiente 100% confortável</p>
+            </div>
+            <div class="p-4">
+                <i class="fa-solid fa-clock text-3xl text-amber-500 mb-3"></i>
+                <h4 class="font-bold text-white text-base mb-1">Sem Espera</h4>
+                <p class="text-xs text-slate-400">Atendimento com hora marcada</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- LOCALIZAÇÃO E CONTATO -->
+    <section id="contato" class="py-20 px-4 bg-slate-950 border-t border-slate-800">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <span class="text-xs uppercase tracking-widest text-amber-500 font-bold mb-2 block">Venha Nos Visitar</span>
+                <h2 class="text-3xl font-extrabold text-white">Localização & Contato</h2>
+            </div>
+
+            <div class="bg-slate-900 p-8 rounded-2xl border border-slate-800 flex flex-col md:flex-row items-center justify-between gap-8">
+                <div class="space-y-4">
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-lg bg-amber-500/10 text-amber-500 flex items-center justify-center shrink-0 mt-1">
+                            <i class="fa-solid fa-location-dot text-lg"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white">Endereço</h4>
+                            <p class="text-sm text-slate-400">Av. Principal dos Nobres, 450 - Centro</p>
+                            <p class="text-xs text-slate-500 mt-1">Estacionamento conveniado no local</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-start gap-4">
+                        <div class="w-10 h-10 rounded-lg bg-amber-500/10 text-amber-500 flex items-center justify-center shrink-0 mt-1">
+                            <i class="fa-regular fa-clock text-lg"></i>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-white">Horários de Funcionamento</h4>
+                            <p class="text-sm text-slate-400">Terça a Sexta: 09:00 às 20:00</p>
+                            <p class="text-sm text-slate-400">Sábado: 08:30 às 19:00 (Domingo e Segunda fechado)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="w-full md:w-auto flex flex-col gap-3 shrink-0">
+                    <a href="https://maps.google.com" target="_blank" 
+                       class="px-6 py-3.5 bg-slate-800 hover:bg-slate-700 text-slate-100 font-bold rounded-xl text-sm transition flex items-center justify-center gap-2 border border-slate-700">
+                        <i class="fa-solid fa-map-location-dot text-amber-500"></i> Abrir no Google Maps
+                    </a>
+                    <a href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20tirar%20uma%20dúvida." target="_blank" 
+                       class="px-6 py-3.5 bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold rounded-xl text-sm transition flex items-center justify-center gap-2">
+                        <i class="fa-brands fa-whatsapp text-base"></i> Conversar no WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- RODAPÉ -->
+    <footer class="py-12 bg-slate-950 border-t border-slate-900 text-center text-slate-500 text-xs">
+        <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-6">
+            <div class="flex items-center gap-2">
+                <span class="font-black tracking-wider text-slate-300 uppercase">VIKING BLADE</span>
+                <span>• Barber Club</span>
+            </div>
+            <div class="flex items-center gap-6 text-lg text-slate-400">
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="hover:text-amber-500 transition" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://wa.me/5511999999999?text=Olá!%20Gostaria%20de%20tirar%20uma%20dúvida." target="_blank" rel="noopener noreferrer" class="hover:text-amber-500 transition" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+            </div>
+            <p>© 2026 Viking Blade Barber. Todos os direitos reservados.</p>
+        </div>
+        <p class="mt-3 text-center text-[11px] tracking-[0.18em] uppercase text-slate-400 font-medium">
+            Projeto Conceitual • Design e Desenvolvimento por <span class="text-amber-500 font-semibold">Wallace Oppikofer</span>.
+        </p>
+    </footer>
+
+    <!-- WIDGET DE PRÉ-AGENDAMENTO INTELIGENTE -->
+    <div class="fixed bottom-5 right-5 z-50 flex items-center">
+        <!-- Pílula de chamada visual (visível no desktop) -->
+        <button onclick="toggleChat(true)" class="hidden sm:inline-flex items-center gap-2 mr-3 px-3.5 py-2 rounded-full bg-slate-900/95 text-amber-400 text-xs font-bold border border-amber-500/30 shadow-xl backdrop-blur-md hover:bg-slate-800 hover:border-amber-400 transition cursor-pointer active:scale-95">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span>Agendamento Rápido</span>
+            <i class="fa-solid fa-scissors text-[11px]"></i>
+        </button>
+
+        <!-- Botão Redondo com Ícone de Tesoura Dourada -->
+        <button id="chatToggleBtn" onclick="toggleChat()" aria-label="Abrir Agendamento" class="relative bg-gradient-to-br from-amber-400 via-amber-500 to-amber-600 hover:from-amber-300 hover:to-amber-500 text-slate-950 w-14 h-14 rounded-full flex items-center justify-center text-xl shadow-2xl transition transform hover:scale-105 active:scale-95 cursor-pointer border border-amber-300/40">
+            <i id="chatToggleIcon" class="fa-solid fa-scissors"></i>
+            <span class="absolute top-0 right-0 h-3.5 w-3.5 rounded-full bg-emerald-500 border-2 border-slate-950"></span>
+        </button>
+
+        <!-- Caixa de Conversa / Pré-Agendamento -->
+        <div id="chatBox" class="hidden flex-col bg-slate-900 border border-slate-700/80 w-[320px] sm:w-[370px] rounded-2xl shadow-2xl overflow-hidden absolute bottom-16 right-0 max-h-[85vh]">
+            <!-- Topo do Chat -->
+            <div class="bg-slate-950 p-4 border-b border-slate-800 flex items-center justify-between">
+                <div class="flex items-center gap-3">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500 to-amber-700 text-slate-950 flex items-center justify-center font-black text-lg shadow-md shadow-amber-500/20">
+                        <i class="fa-solid fa-scissors"></i>
+                    </div>
+                    <div>
+                        <div class="text-sm font-extrabold text-white leading-tight flex items-center gap-1.5">
+                            <span>Recepção Viking</span>
+                            <span class="text-[9px] uppercase font-bold tracking-wider px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-400 border border-amber-500/30">VIP</span>
+                        </div>
+                        <div class="text-[10px] text-emerald-400 flex items-center gap-1 mt-0.5">
+                            <span class="h-1.5 w-1.5 rounded-full bg-emerald-400 inline-block animate-pulse"></span> Agenda Aberta • Sem Filas
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-center gap-1">
+                    <button onclick="recomecarAgendamento()" title="Reiniciar agendamento" class="text-slate-400 hover:text-amber-400 p-1.5 rounded-lg hover:bg-slate-800 transition cursor-pointer text-xs">
+                        <i class="fa-solid fa-rotate-right"></i>
+                    </button>
+                    <button onclick="toggleChat(false)" aria-label="Fechar" class="text-slate-400 hover:text-white p-1.5 rounded-lg hover:bg-slate-800 transition cursor-pointer">
+                        <i class="fa-solid fa-xmark text-base"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Barra de Progresso / Navegação de Etapas Clicável -->
+            <div id="chatProgressBar" class="bg-slate-950/90 px-3 py-1.5 border-b border-slate-800 flex items-center justify-between text-[10px] text-slate-400 select-none">
+                <button id="step-servico" class="transition flex items-center gap-1 font-medium">Serviço</button>
+                <i class="fa-solid fa-chevron-right text-[7px] text-slate-700"></i>
+                <button id="step-barbeiro" class="transition flex items-center gap-1 font-medium">Barbeiro</button>
+                <i class="fa-solid fa-chevron-right text-[7px] text-slate-700"></i>
+                <button id="step-data" class="transition flex items-center gap-1 font-medium">Data/Hora</button>
+                <i class="fa-solid fa-chevron-right text-[7px] text-slate-700"></i>
+                <button id="step-confirmar" class="transition flex items-center gap-1 font-medium">Resumo</button>
+            </div>
+
+            <!-- Corpo de Mensagens -->
+            <div id="chatMessages" class="p-4 space-y-3 max-h-80 overflow-y-auto text-xs">
+                <!-- Mensagens inseridas via script -->
+            </div>
+
+            <!-- Botões de Opção Dinâmicos / Input -->
+            <div id="chatOptions" class="p-3 bg-slate-950/95 border-t border-slate-800 flex flex-col gap-2">
+                <!-- Opções inseridas via script -->
+            </div>
+        </div>
+    </div>
+
+    <!-- SCRIPT DE PRÉ-AGENDAMENTO INTELIGENTE EM ETAPAS (100% FLUIDO & SEM BANCO DE DADOS) -->
+    <script>
+        // Estado do Pré-Agendamento
+        let agendamento = {
+            servico: '',
+            valor: 0,
+            barbeiro: '',
+            dia: '',
+            turno: '',
+            nome: ''
+        };
+
+        const NUMERO_WHATSAPP = '5511999999999';
+
+        function toggleChat(forceState) {
+            const chat = document.getElementById('chatBox');
+            const icon = document.getElementById('chatToggleIcon');
+            const shouldOpen = forceState !== undefined ? forceState : chat.classList.contains('hidden');
+
+            if (shouldOpen) {
+                chat.classList.remove('hidden');
+                chat.classList.add('flex');
+                if (icon) icon.className = "fa-solid fa-chevron-down text-base";
+                // Se o chat estiver vazio, inicia a saudação inicial
+                const messages = document.getElementById('chatMessages');
+                if (messages.children.length === 0) {
+                    iniciarConversaPadrao();
+                }
+            } else {
+                chat.classList.add('hidden');
+                chat.classList.remove('flex');
+                if (icon) icon.className = "fa-solid fa-scissors text-xl";
+            }
+        }
+
+        function adicionarMensagem(conteudo, tipo, step) {
+            const chatMessages = document.getElementById('chatMessages');
+            const msg = document.createElement('div');
+            if (step) msg.setAttribute('data-step', step);
+            
+            if (tipo === 'user') {
+                msg.className = "bg-gradient-to-r from-amber-500 to-amber-600 text-slate-950 font-bold p-3 rounded-xl rounded-tr-none ml-auto max-w-[85%] shadow-md text-xs";
+                msg.textContent = conteudo;
+            } else {
+                msg.className = "bg-slate-800/95 p-3 rounded-xl rounded-tl-none border border-slate-700/80 text-slate-200 max-w-[90%] shadow-sm leading-relaxed text-xs";
+                msg.innerHTML = conteudo;
+            }
+
+            chatMessages.appendChild(msg);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // Barra de progresso interativa no topo do chat (passos clicáveis para voltar)
+        function atualizarProgressBar(etapa) {
+            const steps = [
+                { id: 'step-servico', label: 'Serviço', action: () => voltarParaServicos() },
+                { id: 'step-barbeiro', label: 'Barbeiro', action: () => voltarParaBarbeiro() },
+                { id: 'step-data', label: 'Data/Hora', action: () => voltarParaDia() },
+                { id: 'step-confirmar', label: 'Resumo', action: null }
+            ];
+
+            const stepIndexMap = {
+                'servico': 0,
+                'barbeiro': 1,
+                'dia': 2,
+                'turno': 2,
+                'nome': 3,
+                'ticket': 3
+            };
+            const currentIndex = stepIndexMap[etapa] !== undefined ? stepIndexMap[etapa] : 0;
+
+            steps.forEach((s, idx) => {
+                const el = document.getElementById(s.id);
+                if (!el) return;
+
+                if (idx < currentIndex) {
+                    el.className = "text-emerald-400 hover:text-emerald-300 font-semibold cursor-pointer transition flex items-center gap-1";
+                    el.innerHTML = `<i class="fa-solid fa-check text-[8px]"></i> ${s.label}`;
+                    el.onclick = s.action;
+                    el.title = `Clique para alterar ${s.label}`;
+                } else if (idx === currentIndex) {
+                    el.className = "text-amber-400 font-bold border-b border-amber-400 pb-0.5 flex items-center gap-1 cursor-default";
+                    el.innerHTML = `<span class="w-1.5 h-1.5 rounded-full bg-amber-400 animate-pulse"></span> ${s.label}`;
+                    el.onclick = null;
+                    el.title = `Etapa atual: ${s.label}`;
+                } else {
+                    el.className = "text-slate-600 font-normal cursor-not-allowed";
+                    el.innerHTML = s.label;
+                    el.onclick = null;
+                    el.title = '';
+                }
+            });
+        }
+
+        // Remove do chat histórico de mensagens das etapas posteriores ao voltar
+        function limparMensagensApos(step) {
+            const chatMessages = document.getElementById('chatMessages');
+            const stepsToRemove = {
+                'servico': ['servico-escolhido', 'barbeiro-pergunta', 'barbeiro-escolhido', 'dia-pergunta', 'dia-escolhido', 'turno-pergunta', 'turno-escolhido', 'nome-pergunta', 'nome-escolhido', 'ticket'],
+                'barbeiro': ['barbeiro-escolhido', 'dia-pergunta', 'dia-escolhido', 'turno-pergunta', 'turno-escolhido', 'nome-pergunta', 'nome-escolhido', 'ticket'],
+                'dia': ['dia-escolhido', 'turno-pergunta', 'turno-escolhido', 'nome-pergunta', 'nome-escolhido', 'ticket'],
+                'turno': ['turno-escolhido', 'nome-pergunta', 'nome-escolhido', 'ticket'],
+            };
+
+            const targetSteps = stepsToRemove[step] || [];
+            targetSteps.forEach(s => {
+                const els = chatMessages.querySelectorAll(`[data-step="${s}"]`);
+                els.forEach(el => el.remove());
+            });
+        }
+
+        function voltarParaServicos() {
+            const cardIntro = document.querySelector('[data-step="card-intro"]');
+            if (cardIntro) {
+                iniciarConversaPadrao();
+                return;
+            }
+            limparMensagensApos('servico');
+            agendamento.servico = '';
+            agendamento.valor = 0;
+            mostrarOpcoesServicos();
+        }
+
+        function voltarParaBarbeiro() {
+            limparMensagensApos('barbeiro');
+            agendamento.barbeiro = '';
+            mostrarOpcoesBarbeiro();
+        }
+
+        function voltarParaDia() {
+            limparMensagensApos('dia');
+            agendamento.dia = '';
+            mostrarOpcoesDia();
+        }
+
+        function voltarParaTurno() {
+            limparMensagensApos('turno');
+            agendamento.turno = '';
+            mostrarOpcoesTurno();
+        }
+
+        // Abre o chat a partir do botão principal da Navbar ou do Hero
+        function abrirAgendamentoGeral() {
+            toggleChat(true);
+            recomecarAgendamento();
+        }
+
+        // Inicia com um serviço pré-selecionado (vindo direto de um card de serviço)
+        function iniciarAgendamento(servico, valor) {
+            toggleChat(true);
+            const chatMessages = document.getElementById('chatMessages');
+            chatMessages.innerHTML = '';
+            
+            agendamento = { servico, valor, barbeiro: '', dia: '', turno: '', nome: '' };
+
+            adicionarMensagem(`Fala, guerreiro! Vi que você se interessou pelo <b>${servico}</b> (R$ ${valor},00).`, 'bot', 'card-intro');
+            atualizarProgressBar('barbeiro');
+            
+            setTimeout(() => {
+                adicionarMensagem(`Com qual dos nossos barbeiros você prefere agendar seu horário?`, 'bot', 'barbeiro-pergunta');
+                mostrarOpcoesBarbeiro();
+            }, 400);
+        }
+
+        // Fluxo padrão caso o usuário abra direto pelo botão flutuante
+        function iniciarConversaPadrao() {
+            const chatMessages = document.getElementById('chatMessages');
+            chatMessages.innerHTML = '';
+            agendamento = { servico: '', valor: 0, barbeiro: '', dia: '', turno: '', nome: '' };
+
+            adicionarMensagem(`Fala, guerreiro! Bem-vindo à <b>Viking Blade</b>. Escolha o serviço que você deseja agendar hoje:`, 'bot', 'intro');
+            mostrarOpcoesServicos();
+        }
+
+        function recomecarAgendamento() {
+            iniciarConversaPadrao();
+        }
+
+        // ETAPA 1: ESCOLHER SERVIÇO
+        function mostrarOpcoesServicos() {
+            atualizarProgressBar('servico');
+            const opt = document.getElementById('chatOptions');
+            opt.innerHTML = `
+                <div class="grid grid-cols-1 gap-1.5 w-full">
+                    <button onclick="selecionarServico('Corte Viking Clássico / Fade', 50)" class="text-left text-xs bg-slate-800 hover:bg-amber-500 hover:text-slate-950 text-slate-200 px-3 py-2 rounded-xl border border-slate-700 transition flex items-center justify-between font-medium cursor-pointer">
+                        <span>✂️ Corte Clássico / Fade</span>
+                        <strong class="font-bold text-amber-400 group-hover:text-slate-950">R$ 50</strong>
+                    </button>
+                    <button onclick="selecionarServico('Barba Terapia Completa', 40)" class="text-left text-xs bg-slate-800 hover:bg-amber-500 hover:text-slate-950 text-slate-200 px-3 py-2 rounded-xl border border-slate-700 transition flex items-center justify-between font-medium cursor-pointer">
+                        <span>🪒 Barba Terapia c/ Toalha</span>
+                        <strong class="font-bold text-amber-400">R$ 40</strong>
+                    </button>
+                    <button onclick="selecionarServico('Combo Viking Blade (Corte + Barba + Chopp)', 80)" class="text-left text-xs bg-gradient-to-r from-amber-500/20 via-slate-800 to-slate-800 hover:from-amber-500 hover:to-amber-600 hover:text-slate-950 text-slate-200 px-3 py-2 rounded-xl border border-amber-500/40 transition flex items-center justify-between font-medium cursor-pointer">
+                        <span>👑 Combo VIP (+ 1 Chopp)</span>
+                        <strong class="font-bold text-amber-400">R$ 80</strong>
+                    </button>
+                </div>
+            `;
+        }
+
+        function selecionarServico(servico, valor) {
+            agendamento.servico = servico;
+            agendamento.valor = valor;
+            adicionarMensagem(`Quero agendar: ${servico}`, 'user', 'servico-escolhido');
+            atualizarProgressBar('barbeiro');
+
+            setTimeout(() => {
+                adicionarMensagem(`Excelente escolha! Com qual dos nossos barbeiros você prefere agendar?`, 'bot', 'barbeiro-pergunta');
+                mostrarOpcoesBarbeiro();
+            }, 350);
+        }
+
+        // ETAPA 2: ESCOLHER BARBEIRO
+        function mostrarOpcoesBarbeiro() {
+            atualizarProgressBar('barbeiro');
+            const opt = document.getElementById('chatOptions');
+            opt.innerHTML = `
+                <div class="flex flex-col gap-1.5 w-full">
+                    <button onclick="selecionarBarbeiro('⚡ Qualquer Barbeiro Disponível')" class="text-left text-xs bg-slate-800 hover:bg-amber-500 hover:text-slate-950 text-slate-200 px-3 py-2 rounded-xl border border-slate-700 transition font-medium flex items-center justify-between cursor-pointer">
+                        <span>⚡ Qualquer Barbeiro</span>
+                        <span class="text-[10px] text-emerald-400 font-bold">Mais rápido</span>
+                    </button>
+                    <button onclick="selecionarBarbeiro('🧔 Erik Machado (Fade & Tesoura)')" class="text-left text-xs bg-slate-800 hover:bg-amber-500 hover:text-slate-950 text-slate-200 px-3 py-2 rounded-xl border border-slate-700 transition font-medium flex items-center justify-between cursor-pointer">
+                        <span>🧔 Erik Machado</span>
+                        <span class="text-[10px] text-slate-400">Fade & Tesoura</span>
+                    </button>
+                    <button onclick="selecionarBarbeiro('🪒 Ragnar (Mestre da Barba)')" class="text-left text-xs bg-slate-800 hover:bg-amber-500 hover:text-slate-950 text-slate-200 px-3 py-2 rounded-xl border border-slate-700 transition font-medium flex items-center justify-between cursor-pointer">
+                        <span>🪒 Ragnar</span>
+                        <span class="text-[10px] text-slate-400">Mestre da Barba</span>
+                    </button>
+                </div>
+                <button onclick="voltarParaServicos()" class="w-full text-center text-[11px] text-slate-400 hover:text-amber-400 py-1 transition flex items-center justify-center gap-1.5 cursor-pointer">
+                    <i class="fa-solid fa-arrow-left text-[9px]"></i> Voltar e escolher outro serviço
+                </button>
+            `;
+        }
+
+        function selecionarBarbeiro(barbeiro) {
+            agendamento.barbeiro = barbeiro;
+            adicionarMensagem(`Barbeiro: ${barbeiro}`, 'user', 'barbeiro-escolhido');
+            atualizarProgressBar('dia');
+
+            setTimeout(() => {
+                adicionarMensagem(`Perfeito! Para qual dia você prefere o seu atendimento?`, 'bot', 'dia-pergunta');
+                mostrarOpcoesDia();
+            }, 350);
+        }
+
+        // ETAPA 3A: ESCOLHER DIA
+        function mostrarOpcoesDia() {
+            atualizarProgressBar('dia');
+            const opt = document.getElementById('chatOptions');
+            opt.innerHTML = `
+                <div class="grid grid-cols-3 gap-1.5 w-full">
+                    <button onclick="selecionarDia('Hoje')" class="text-center text-xs bg-slate-800 hover:bg-amber-500 hover:text-slate-950 text-slate-200 px-2 py-2.5 rounded-xl border border-slate-700 transition font-medium cursor-pointer">
+                        📅 Hoje
+                    </button>
+                    <button onclick="selecionarDia('Amanhã')" class="text-center text-xs bg-slate-800 hover:bg-amber-500 hover:text-slate-950 text-slate-200 px-2 py-2.5 rounded-xl border border-slate-700 transition font-medium cursor-pointer">
+                        📅 Amanhã
+                    </button>
+                    <button onclick="selecionarDia('Esta Semana')" class="text-center text-xs bg-slate-800 hover:bg-amber-500 hover:text-slate-950 text-slate-200 px-2 py-2.5 rounded-xl border border-slate-700 transition font-medium cursor-pointer">
+                        🗓️ Outro Dia
+                    </button>
+                </div>
+                <button onclick="voltarParaBarbeiro()" class="w-full text-center text-[11px] text-slate-400 hover:text-amber-400 py-1 transition flex items-center justify-center gap-1.5 cursor-pointer">
+                    <i class="fa-solid fa-arrow-left text-[9px]"></i> Voltar e trocar de barbeiro
+                </button>
+            `;
+        }
+
+        function selecionarDia(dia) {
+            agendamento.dia = dia;
+            adicionarMensagem(`Dia: ${dia}`, 'user', 'dia-escolhido');
+            atualizarProgressBar('turno');
+
+            setTimeout(() => {
+                adicionarMensagem(`Em qual turno você prefere ser atendido?`, 'bot', 'turno-pergunta');
+                mostrarOpcoesTurno();
+            }, 350);
+        }
+
+        // ETAPA 3B: ESCOLHER TURNO
+        function mostrarOpcoesTurno() {
+            atualizarProgressBar('turno');
+            const opt = document.getElementById('chatOptions');
+            opt.innerHTML = `
+                <div class="flex flex-col gap-1.5 w-full">
+                    <button onclick="selecionarTurno('Manhã (09h às 12h)')" class="text-left text-xs bg-slate-800 hover:bg-amber-500 hover:text-slate-950 text-slate-200 px-3 py-2 rounded-xl border border-slate-700 transition font-medium flex items-center justify-between cursor-pointer">
+                        <span>☀️ Manhã</span>
+                        <span class="text-[10px] text-slate-400">09h às 12h</span>
+                    </button>
+                    <button onclick="selecionarTurno('Tarde (13h às 18h)')" class="text-left text-xs bg-slate-800 hover:bg-amber-500 hover:text-slate-950 text-slate-200 px-3 py-2 rounded-xl border border-slate-700 transition font-medium flex items-center justify-between cursor-pointer">
+                        <span>🌤️ Tarde</span>
+                        <span class="text-[10px] text-slate-400">13h às 18h</span>
+                    </button>
+                    <button onclick="selecionarTurno('Noite (18h às 20h)')" class="text-left text-xs bg-slate-800 hover:bg-amber-500 hover:text-slate-950 text-slate-200 px-3 py-2 rounded-xl border border-slate-700 transition font-medium flex items-center justify-between cursor-pointer">
+                        <span>🌙 Noite</span>
+                        <span class="text-[10px] text-slate-400">18h às 20h</span>
+                    </button>
+                </div>
+                <button onclick="voltarParaDia()" class="w-full text-center text-[11px] text-slate-400 hover:text-amber-400 py-1 transition flex items-center justify-center gap-1.5 cursor-pointer">
+                    <i class="fa-solid fa-arrow-left text-[9px]"></i> Voltar e alterar o dia
+                </button>
+            `;
+        }
+
+        function selecionarTurno(turno) {
+            agendamento.turno = turno;
+            adicionarMensagem(`Turno: ${turno}`, 'user', 'turno-escolhido');
+            atualizarProgressBar('nome');
+
+            setTimeout(() => {
+                adicionarMensagem(`Quase pronto! Como podemos te chamar para registrar seu atendimento na recepção?`, 'bot', 'nome-pergunta');
+                mostrarInputNome();
+            }, 350);
+        }
+
+        // ETAPA 4: NOME DO CLIENTE
+        function mostrarInputNome() {
+            atualizarProgressBar('nome');
+            const opt = document.getElementById('chatOptions');
+            opt.innerHTML = `
+                <div class="flex items-center gap-1.5 w-full">
+                    <input id="clienteNomeInput" type="text" placeholder="Digite seu nome..." 
+                           class="flex-1 bg-slate-800 border border-slate-700 rounded-xl px-3 py-2.5 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-amber-500"
+                           onkeypress="if(event.key === 'Enter') confirmarNome();">
+                    <button onclick="confirmarNome()" class="bg-amber-500 hover:bg-amber-600 text-slate-950 font-bold px-4 py-2.5 rounded-xl text-xs transition cursor-pointer flex items-center gap-1 shrink-0">
+                        <span>Avançar</span>
+                        <i class="fa-solid fa-arrow-right text-[10px]"></i>
+                    </button>
+                </div>
+                <button onclick="voltarParaTurno()" class="w-full text-center text-[11px] text-slate-400 hover:text-amber-400 py-1 transition flex items-center justify-center gap-1.5 cursor-pointer">
+                    <i class="fa-solid fa-arrow-left text-[9px]"></i> Voltar e alterar o turno
+                </button>
+            `;
+            setTimeout(() => {
+                const input = document.getElementById('clienteNomeInput');
+                if (input) input.focus();
+            }, 100);
+        }
+
+        function confirmarNome() {
+            const input = document.getElementById('clienteNomeInput');
+            const nomeDigitado = input ? input.value.trim() : '';
+            agendamento.nome = nomeDigitado || 'Cliente Viking';
+
+            adicionarMensagem(`Meu nome é: ${agendamento.nome}`, 'user', 'nome-escolhido');
+            atualizarProgressBar('ticket');
+
+            setTimeout(() => {
+                mostrarTicketFinal();
+            }, 400);
+        }
+
+        // ETAPA 5: RESUMO DO TICKET E BOTÃO WHATSAPP
+        function mostrarTicketFinal() {
+            atualizarProgressBar('ticket');
+            // Mini comanda formatada no chat
+            const ticketHTML = `
+                <div class="bg-slate-950/95 border border-amber-500/40 rounded-xl p-3.5 text-xs text-slate-200 shadow-xl space-y-2">
+                    <div class="text-amber-400 font-black uppercase tracking-wider text-[11px] pb-1.5 border-b border-slate-800 flex items-center justify-between">
+                        <span class="flex items-center gap-1.5"><i class="fa-solid fa-scissors text-amber-500"></i> PRÉ-RESERVA PRONTA</span>
+                        <span class="text-[9px] bg-emerald-500/20 text-emerald-400 px-1.5 py-0.5 rounded border border-emerald-500/30 font-bold">100% Grátis</span>
+                    </div>
+                    <div class="space-y-1 text-[11px] leading-relaxed">
+                        <div><span class="text-slate-400">👤 Cliente:</span> <strong class="text-white">${agendamento.nome}</strong></div>
+                        <div><span class="text-slate-400">✂️ Serviço:</span> <strong class="text-amber-400">${agendamento.servico}</strong> <span class="text-slate-400 font-normal">(R$ ${agendamento.valor},00)</span></div>
+                        <div><span class="text-slate-400">🧔 Barbeiro:</span> <strong class="text-slate-100">${agendamento.barbeiro}</strong></div>
+                        <div><span class="text-slate-400">📅 Quando:</span> <strong class="text-white">${agendamento.dia} • ${agendamento.turno}</strong></div>
+                    </div>
+                </div>
+                <p class="mt-2 text-slate-300 text-[11px]">Clique abaixo para enviar essa comanda ao WhatsApp da barbearia e confirmar seu horário:</p>
+            `;
+
+            adicionarMensagem(ticketHTML, 'bot', 'ticket');
+
+            // Mensagem formatada enviada ao WhatsApp
+            const textoWhatsApp = encodeURIComponent(
+`⚔️ *PRÉ-AGENDAMENTO • VIKING BLADE* ⚔️
+━━━━━━━━━━━━━━━━━━━━━━
+👤 *Cliente:* ${agendamento.nome}
+✂️ *Serviço:* ${agendamento.servico}
+💰 *Valor:* R$ ${agendamento.valor},00
+🧔 *Barbeiro:* ${agendamento.barbeiro}
+📅 *Data:* ${agendamento.dia}
+⏰ *Turno:* ${agendamento.turno}
+━━━━━━━━━━━━━━━━━━━━━━
+👉 _Olá! Fiz meu pré-agendamento pelo site e gostaria de confirmar o horário exato disponível._`
+            );
+
+            const linkWhatsApp = `https://wa.me/${NUMERO_WHATSAPP}?text=${textoWhatsApp}`;
+
+            const opt = document.getElementById('chatOptions');
+            opt.innerHTML = `
+                <a href="${linkWhatsApp}" target="_blank" class="w-full text-center text-xs bg-emerald-500 hover:bg-emerald-600 text-slate-950 font-black px-4 py-3 rounded-xl transition flex items-center justify-center gap-2 shadow-lg shadow-emerald-500/20 active:scale-95">
+                    <i class="fa-brands fa-whatsapp text-base"></i> Confirmar Horário no WhatsApp
+                </a>
+                <div class="grid grid-cols-2 gap-1.5 pt-1 border-t border-slate-800 text-[11px]">
+                    <button onclick="voltarParaServicos()" class="text-slate-400 hover:text-amber-400 py-1 transition text-center cursor-pointer flex items-center justify-center gap-1">
+                        <i class="fa-solid fa-scissors text-[9px]"></i> Trocar Serviço
+                    </button>
+                    <button onclick="voltarParaBarbeiro()" class="text-slate-400 hover:text-amber-400 py-1 transition text-center cursor-pointer flex items-center justify-center gap-1">
+                        <i class="fa-solid fa-user text-[9px]"></i> Trocar Barbeiro
+                    </button>
+                </div>
+                <button onclick="recomecarAgendamento()" class="text-center text-[10px] text-slate-500 hover:text-slate-300 transition cursor-pointer">
+                    <i class="fa-solid fa-rotate-right mr-1"></i> Reiniciar do zero
+                </button>
+            `;
+        }
+    </script>
+</body>
+</html>
